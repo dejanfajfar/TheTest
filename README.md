@@ -11,6 +11,19 @@
 
 # 👋 Introduction
 
+This repository is not mend to be a full or even half features application. It is mend as a vertical slice of a full stack application that can easily be used to make quick technical evaluations.
+
+Either by letting potential candidates build upon the existing base. Or using it as a starting block to evaluate some new peace of technology. 
+
+## The technology stack
+
+```mermaid
+flowchart  BT:
+    db[postgreSQL] --> api[ASP.NET MVC core]
+    api --> ui[Blazor.net]
+    ui --> comp[AndBlazor]
+```
+
 # 🔨 Setup
 
 Because this is designed to be a basis for a technical interview the setup in itself is the not automated. 
