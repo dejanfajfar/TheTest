@@ -1,0 +1,51 @@
+﻿@page "/notes"
+@using UI.Services.Contracts
+@using UI.Services.Notes
+@using AntDesign;
+
+<PageTitle>Notes</PageTitle>
+
+<h3>Notes</h3>
+
+<Button OnClick="addNote" Type="primary" Style="margin-bottom:16px">
+    Add new Note
+</Button>
+<Skeleton Loading="_loading" Active>
+    <Table Title="Active notes" DataSource="_noteList" Size="TableSize.Small" Bordered="true" TItem="Note">
+        <PropertyColumn Property="n => n.Title" Sortable/>
+        <ActionColumn Title="Action">
+            <Space>
+                <SpaceItem><Button Danger OnClick="()=>Delete(context.Id)">Delete</Button></SpaceItem>
+            </Space>
+        </ActionColumn>
+    </Table>
+</Skeleton>
+
+
+@code {
+
+    [Inject]
+    public INotesService NotesService { get; set; }
+
+    private IEnumerable<Note> _noteList = Array.Empty<Note>();
+
+    private bool _loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _noteList = await NotesService.GetNotes();
+        _loading = false;
+        StateHasChanged();
+    }
+
+    private void addNote()
+    {
+        throw new NotImplementedException();
+    }
+
+    private Task Delete(Guid contextId)
+    {
+        throw new NotImplementedException();
+    }
+
+}
