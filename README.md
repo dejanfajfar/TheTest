@@ -18,7 +18,7 @@ Either by letting potential candidates build upon the existing base. Or using it
 ## The technology stack
 
 ```mermaid
-flowchart  BT:
+flowchart BT
     db[postgreSQL] --> api[ASP.NET MVC core]
     api --> ui[Blazor.net]
     ui --> comp[AndBlazor]
